@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Tải Ứng Dụng — Thư Viện Học Tập</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(155deg, #e0f2fe 0%, #f8fafc 48%, #ede9fe 100%);
+      color: #0f172a;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 16px;
+    }
+    .card {
+      width: 100%;
+      max-width: 460px;
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.10);
+      border: 1px solid #e2e8f0;
+      overflow: hidden;
+    }
+    .hero {
+      background: linear-gradient(135deg, #0284c7 0%, #4f46e5 100%);
+      color: #ffffff;
+      padding: 28px 22px 24px;
+      text-align: center;
+    }
+    .logo-badge {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 12px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.18);
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 38px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+    .hero h1 {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -0.3px;
+      margin-bottom: 6px;
+    }
+    .hero p {
+      font-size: 14px;
+      color: #e0f2fe;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+    .body {
+      padding: 22px 20px 24px;
+    }
+    .device-tip {
+      display: none;
+      margin-bottom: 14px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+    .device-tip.ios {
+      display: block;
+      background: #eff6ff;
+      color: #1e40af;
+      border: 1px solid #bfdbfe;
+    }
+    .device-tip.android {
+      display: block;
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+    }
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 15px 18px;
+      border-radius: 18px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 800;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+      cursor: pointer;
+    }
+    .btn:active { transform: scale(0.98); }
+    .btn-android {
+      background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+      color: #ffffff;
+      box-shadow: 0 10px 22px rgba(5, 150, 105, 0.25);
+      margin-bottom: 12px;
+    }
+    .btn-web {
+      background: #f1f5f9;
+      color: #0f172a;
+      border: 2px solid #cbd5e1;
+      margin-bottom: 18px;
+    }
+    .btn-web.primary-ios {
+      background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+      color: #ffffff;
+      border-color: transparent;
+      box-shadow: 0 10px 22px rgba(37, 99, 235, 0.24);
+    }
+    .guide-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 15px 16px;
+      margin-bottom: 14px;
+    }
+    .guide-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+    .steps {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .steps li {
+      font-size: 13.5px;
+      line-height: 1.5;
+      color: #334155;
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: #e0f2fe;
+      color: #0369a1;
+      font-size: 12px;
+      font-weight: 900;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+    .ios-note {
+      background: #faf5ff;
+      border: 1px solid #e9d5ff;
+      border-radius: 14px;
+      padding: 11px 14px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #581c87;
+      font-weight: 600;
+    }
+    .footer {
+      text-align: center;
+      padding: 12px 16px 16px;
+      font-size: 12px;
+      color: #64748b;
+      font-weight: 600;
+      border-top: 1px solid #f1f5f9;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <header class="hero">
+      <div class="logo-badge">📚</div>
+      <h1>Thư Viện Học Tập</h1>
+      <p>Mô phỏng trực quan &amp; Luyện đề tương tác<br>Lớp 4 • Lớp 7 (Kết Nối Tri Thức)</p>
+    </header>
+
+    <section class="body">
+      <div id="deviceTip" class="device-tip"></div>
+
+      <a id="btnAndroid" class="btn btn-android" href="./ThuVienHocTap.apk" download="ThuVienHocTap.apk">
+        <span>📲</span>
+        <span>Tải Ứng Dụng Android (.apk)</span>
+      </a>
+
+      <a id="btnWeb" class="btn btn-web" href="./index.html">
+        <span>🌐</span>
+        <span>Học Ngay Trên Web (iPhone / iPad / PC)</span>
+      </a>
+
+      <div class="guide-box">
+        <div class="guide-title">🛠️ Hướng dẫn cài nhanh trên điện thoại Android</div>
+        <ol class="steps">
+          <li><span class="step-num">1</span><span>Bấm nút xanh <strong>Tải Ứng Dụng Android (.apk)</strong> ở trên và chờ tải xong tệp <code>ThuVienHocTap.apk</code>.</span></li>
+          <li><span class="step-num">2</span><span>Mở tệp vừa tải. Nếu máy hỏi quyền bảo mật, chọn <strong>Cài đặt → Cho phép từ nguồn này</strong> rồi quay lại.</span></li>
+          <li><span class="step-num">3</span><span>Bấm <strong>Cài đặt (Install)</strong> → <strong>Mở</strong> ứng dụng và đăng nhập (hoặc tạo tài khoản dùng thử miễn phí).</span></li>
+        </ol>
+      </div>
+
+      <div class="ios-note">
+        🍎 <strong>Dùng iPhone / iPad?</strong> Bấm nút <strong>Học Ngay Trên Web</strong> ở trên, sau đó trong Safari chọn biểu tượng <strong>Chia sẻ (⬆️) → Thêm vào MH chính</strong> để có biểu tượng ứng dụng ngay ngoài màn hình!
+      </div>
+    </section>
+
+    <footer class="footer">
+      Đường dẫn tải chính thức • Luôn tự động cập nhật phiên bản mới nhất
+    </footer>
+  </main>
+
+  <script>
+    (function() {
+      var ua = navigator.userAgent || '';
+      var tip = document.getElementById('deviceTip');
+      var btnWeb = document.getElementById('btnWeb');
+      if (/iPhone|iPad|iPod/i.test(ua)) {
+        tip.className = 'device-tip ios';
+        tip.innerHTML = '🍎 Phát hiện bạn đang dùng <strong>iPhone / iPad</strong> — hãy bấm nút <strong>Học Ngay Trên Web</strong> bên dưới để vào học ngay không cần cài file .apk!';
+        btnWeb.classList.add('primary-ios');
+      } else if (/Android/i.test(ua)) {
+        tip.className = 'device-tip android';
+        tip.innerHTML = '🤖 Phát hiện điện thoại <strong>Android</strong> — bấm nút xanh bên dưới để tải và cài đặt ứng dụng dùng mượt nhất!';
+      }
+    })();
+  </script>
+</body>
+</html>
